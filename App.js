@@ -1,21 +1,51 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import React from "react";
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from "@react-navigation/native";
+import Home from "./src/screens/Home";
+import {Provider} from "react-redux";
+import {createStore} from "redux";
+import Reducer from "./src/Redux/Reducer";
 
-export default function App() {
+
+
+
+const Stack = createStackNavigator();
+
+
+function Root() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Stack.Navigator>
+      
+      <Stack.Screen name="Home" component={Home} />
+   
+   </Stack.Navigator>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+let drawers = () => {
+    
+  const Drawer = createDrawerNavigator();
+
+
+
+return (
+
+  <Provider store={ createStore(Reducer)} >
+      
+    <NavigationContainer> 
+          <Drawer.Navigator  openByDefault drawerType= {"front"} drawerPosition="left" >
+          <Drawer.Screen name="All images" component= { Root } />
+          </Drawer.Navigator>
+    </NavigationContainer>
+    
+  </Provider>
+ 
+
+
+)
+};
+
+export default drawers;
