@@ -23,7 +23,7 @@ import * as actions from "../Redux/action creators/actions";
    
    render() {
 
-        console.log( this.props.state.data );
+        
         
     
         
@@ -51,13 +51,8 @@ import * as actions from "../Redux/action creators/actions";
                        style={styles.image}
                        source={item.src}
                      /> 
- 
-
-              </View>
-                   
-                   
-                   
-           </View>        
+               </View>
+            </View>        
                    ) }} /> 
                
                </View>
