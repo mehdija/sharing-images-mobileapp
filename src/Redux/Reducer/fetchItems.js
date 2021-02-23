@@ -1,11 +1,10 @@
 
-
-
-
+import produce from "immer";
 
                   
-
-export let fetchItems = ( state = { data : [ ] , myData: [ ]  } , action ) => {
+let id ;
+let counter = 3;
+export let fetchItems = ( state = { data : [ ]    } , action ) => {
 
      
     if ( action.type === "fetch data" ) {
@@ -13,8 +12,25 @@ export let fetchItems = ( state = { data : [ ] , myData: [ ]  } , action ) => {
       return { ...state , data : action.payload };
   
     }
-   
+
+    else if ( action.type === "add image" ) {
+
+    
+      const ImagesAdded = produce( state , draft => {
+        counter++;
+        id = "id" + counter.toString();
+        draft.data.push({ name :"elmehdi" , image: action.payload , src: require("../Reducer/picture.png") , id : id })
+      
+    
+      })
+
+      return ImagesAdded;
+
+    
+    }
+
     
     else { return state; }
+
 
   }

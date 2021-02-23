@@ -1,11 +1,7 @@
 
-import mountains from "../Reducer/mountains.jpg";
-import myPicture from "../Reducer/picture.png";
-import beach from "../Reducer/beach.jpg";
 
 
-
-let fakeData = [ { name :"elmehdi", src: require( "../Reducer/picture.png" ) } , { name : "lacey" , src: require( "../Reducer/mountains.jpg" ) } , { name :"mark", src: require( "../Reducer/beach.jpg") } ];
+let fakeData = [ {  name :"elmehdi", src:  require("../Reducer/picture.png" ) , image :  require("../Reducer/coding.jpg" ) , id :"id1" } , { name : "Lacey" , src:  require("../Reducer/Lacey.jpg" ) , image : require( "../Reducer/mountains.jpg" ) , id : "id2" } , {  name : "Mark" , src: require("../Reducer/Mark.jpg") , image : require( "../Reducer/beach.jpg") , id :"id3" } ];
 
 
 
@@ -16,5 +12,10 @@ return { type : "fetch data" , payload : fakeData  };
 
 }
 
+export let addImage = ( payload ) => {
+
+return { type : "add image" , payload : payload }
+
+}
 
 

@@ -41,7 +41,7 @@ return (
     <NavigationContainer> 
           <Drawer.Navigator openByDefault drawerType= {"front"} drawerPosition="left">
           <Drawer.Screen name="All images" component= {Root}/>
-          <Drawer.Screen name="My images" component= {MyImages}  onPress={ actions.fetchMyImages() } />
+          <Drawer.Screen name="My images" component= {MyImages} />
           </Drawer.Navigator>
     </NavigationContainer>
     
