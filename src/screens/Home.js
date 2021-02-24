@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import {View,Text,StyleSheet,Image, FlatList } from "react-native";
 import {connect} from "react-redux";
+import { Icon  } from 'react-native-elements';
 import * as actions from "../Redux/action creators/actions";
+import Icons from "../components/Icons";
 
 
 
@@ -41,14 +43,15 @@ import * as actions from "../Redux/action creators/actions";
                        source={item.src}
                      />  
                      <Text style={styles.text}>{item.name}</Text>
-                     
+                    
+                   
 
                    </View>
 
                 <View style= { styles.MainView } > 
 
                 
-           { typeof item.image === "string" ? <Image style={styles.image} source={{ uri : item.image }}/> :  <Image style={styles.image} source={ item.image } /> }    
+           { typeof item.image === "string" ?<View><Image style={styles.image} source={{ uri : item.image }}/><Icons/></View> : <View><Image style={styles.image} source={ item.image } /><Icons/></View> }    
                
                </View>
             </View>        
@@ -71,7 +74,8 @@ const mapStateToprops = ( state ) => {
 const styles = StyleSheet.create({
 
     container:  {
-        flex: 1
+        flex: 1 ,
+        backgroundColor : "#232946"
                 },
       secondContainer:{
         flex : 1
@@ -81,8 +85,9 @@ const styles = StyleSheet.create({
         flexDirection : "row" 
                 },
     text :{
-    color : "black",
+    color : "#b8c1ec",
     fontFamily:"Roboto",
+    fontSize : 16 ,
     marginTop: 26,
     marginLeft : 15
 
@@ -105,8 +110,14 @@ const styles = StyleSheet.create({
       height: 320,
       marginLeft : 15,
      
-       }
-    
-            });
+       },
+      
+       Icons : {
+          
+        flexDirection : "row"
+
+              
+           }
+           });
 
 export default connect( mapStateToprops, actions )( Home );
