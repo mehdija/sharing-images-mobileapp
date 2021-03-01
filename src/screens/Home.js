@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import { Icon  } from 'react-native-elements';
 import * as actions from "../Redux/action creators/actions";
 import Icons from "../components/Icons";
+import Constants from 'expo-constants';
 
 
 
@@ -26,7 +27,7 @@ import Icons from "../components/Icons";
    render() {
 
         
-        console.log(this.props.state);
+        console.log( this.props.state.data[0]);
     
         
         return (
@@ -43,10 +44,7 @@ import Icons from "../components/Icons";
                        source={item.src}
                      />  
                      <Text style={styles.text}>{item.name}</Text>
-                    
-                   
-
-                   </View>
+                    </View>
 
                 <View style= { styles.MainView } > 
 
@@ -75,7 +73,8 @@ const styles = StyleSheet.create({
 
     container:  {
         flex: 1 ,
-        backgroundColor : "#232946"
+        backgroundColor : "#232946",
+        marginTop : Constants.statusBarHeight
                 },
       secondContainer:{
         flex : 1

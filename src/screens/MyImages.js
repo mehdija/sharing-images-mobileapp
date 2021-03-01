@@ -132,14 +132,14 @@ class MyImages extends Component {
                    
                    <View style = {  styles.imageView  } >   
                       <Button
-                            title="GALERIE"
+                            title="Gallery"
                             type="clear"
                             onPress = { () => { this.pickImage() } }
                             buttonStyle = { {  color: "black" , alignItems : "flex-start"  } }
                       />           
        
                       <Button
-                          title="PHOTO"
+                          title="Camera"
                           type="clear"
                           onPress = { () => { this.takePhoto() } }
                           buttonStyle = { {  color: "black" , alignItems : 'flex-end'  }}
@@ -157,16 +157,15 @@ class MyImages extends Component {
             let myImages = [];
            
 
-            ImagesArray.map( item => {  
+            ImagesArray.map( item => { 
 
-             
+               
+              
               if ( item.name === 'elmehdi' ) {
 
-                 
-              myImages.push( { id : item.id , image : item.image } )
+                 myImages.push( { id : item.id , image : item.image } )
                 
-                
-                }
+                } 
               
               
               });
@@ -180,10 +179,10 @@ class MyImages extends Component {
 
                
               
-               { this.state.clicked  ? imageView    :  <View styles={ styles.secondContainer }> 
+               {  this.state.clicked  ?  imageView  :  <View styles={ styles.secondContainer }> 
                  
               
-                 < Icon iconStyle={ { marginTop: 34 , marginRight: 270 } } name='camera' type='font-awesome' color='black' onPress = { ( ) => {  this.setState({ clicked : true })  }  } /> 
+                 < Icon iconStyle={ { marginTop: 34 , marginRight: 270 , marginBottom : 80 } } name='camera' type='font-awesome' color='white' onPress = { ( ) => {  this.setState({ clicked : true })  }  } /> 
             
               { this.state.imageAdded ? <View style={{ justifyContent : "center" }}>< FlatList removeClippedSubviews={ false } horizontal={false}  numColumns = {3} keyExtractor={ item => item.id } data= { myImages }  columnWrapperStyle= {{ justifyContent : "flex-start" }}  renderItem = { ( { item } ) => {
               
@@ -241,7 +240,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         marginTop: Constants.statusBarHeight,
-        alignItems : "center"
+        alignItems : "center",
+        backgroundColor : "#232946"
         
                 
                  },
@@ -251,8 +251,8 @@ const styles = StyleSheet.create({
             
             },
         image : { 
-            width: 130,
-            height: 130,
+            width: 200,
+            height: 200,
             marginTop : 100,
             marginLeft : 20
         },
@@ -272,8 +272,9 @@ const styles = StyleSheet.create({
           },
       gallery : {
           
-        width: 100,
-        height: 100
+        width: 110,
+        height: 110 ,
+        marginRight : 3
         
         }
         });

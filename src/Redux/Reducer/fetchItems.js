@@ -4,7 +4,7 @@ import produce from "immer";
                   
 let id ;
 let counter = 3;
-export let fetchItems = ( state = { data : [ ]    } , action ) => {
+export let fetchItems = ( state = { data : [ ]  } , action ) => {
 
      
     if ( action.type === "fetch data" ) {

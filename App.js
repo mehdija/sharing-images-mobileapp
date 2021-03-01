@@ -18,7 +18,9 @@ const Stack = createStackNavigator();
 
 function Root() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator  screenOptions={{
+      headerShown: false
+    }}>
       
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="MyImages" component={MyImages} />
